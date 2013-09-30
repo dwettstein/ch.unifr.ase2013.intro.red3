@@ -1,0 +1,30 @@
+<div id="main">
+
+<h1>Listing posts</h1>
+
+<div>
+	<%= link_to 'New post', new_post_path %>
+</div>
+
+<div title="Username: admin, Password: password">To edit or delete a post, hover on this text...</div>
+
+<table id="posts_table">
+	<tr>
+		<th>Title</th>
+		<th>Text</th>
+		<th></th>
+    	<th></th>
+    	<th></th>
+	</tr>
+	<% @posts.each do |post| %>
+		<tr id="post">
+			<td id="post_title"><%= post.title %></td>
+			<td id="post_text"><%= post.text %></td>
+			<td id="post_link"><%= link_to 'Show', post_path(post) %></td>
+    		<td id="post_link"><%= link_to 'Edit', edit_post_path(post) %></td>
+    		<td id="post_link"><%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	<% end %>
+</table>
+
+</div>

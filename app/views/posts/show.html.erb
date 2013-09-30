@@ -1,0 +1,32 @@
+<div id="main">
+
+<table id="posts_table">
+	<tr>
+		<th>Title</th>
+		<th>Text</th>
+		<th></th>
+    	<th></th>
+    	<th></th>
+	</tr>
+		<tr id="post">
+			<td id="post_title"><%= @post.title %></td>
+			<td id="post_text"><%= @post.text %></td>
+    		<td id="post_link"><%= link_to 'Edit', edit_post_path(@post) %></td>
+    		<td id="post_link"><%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+</table>
+
+<p id="back_link">
+	<%= link_to 'Back to post list', posts_path %>
+</p>
+
+
+<p>
+	<h3>Comments: </h3>
+	<%= render @post.comments %>
+
+	<h3>Add a comment:</h3>
+	<%= render "comments/form" %>
+</p>
+
+</div>
